@@ -1,4 +1,4 @@
-package Ankitapatil;
+package Ankitapatil.test;
 
 import java.time.Duration;
 import java.util.List;
@@ -69,9 +69,6 @@ public class StandAloneTest1
         String confirmesssage= driver.findElement(By.cssSelector(".hero-primary")).getText();
         Assert.assertTrue(confirmesssage.equalsIgnoreCase("Thankyou for the order."));
        
-        
-       
-        
-    }
+ }
 
 }

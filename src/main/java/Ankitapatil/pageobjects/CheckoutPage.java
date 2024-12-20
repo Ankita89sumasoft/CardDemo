@@ -24,14 +24,20 @@ public class CheckoutPage extends  AbstractComponents
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
+	
+	
 	@FindBy(css=".action__submit")
 	WebElement submit;
+	@FindBy(xpath="//footer")
+	WebElement element;
 	@FindBy(css="[placeholder='Select Country']")
 	WebElement country;
 	@FindBy(xpath="(//button[contains(@class,'ta-item')])[2]")
 	WebElement selectCountry;
 	
 	By results = By.cssSelector(".ta-results");
+	
+	
 	
 	public void selectCountry(String countryName) throws InterruptedException 
 	{
@@ -43,9 +49,8 @@ public class CheckoutPage extends  AbstractComponents
 	       JavascriptExecutor js = (JavascriptExecutor) driver;
 	       js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
 
-	       //JavascriptExecutor js = (JavascriptExecutor) driver;
-	       //js.executeScript("window.scrollBy(0,100000);");
-
+	      //js.executeScript("arguments[0].scrollIntoView(true);", element);
+	      
 	 }
 	public ConfirmationPage submitOrder() 
 	{

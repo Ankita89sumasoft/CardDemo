@@ -19,7 +19,11 @@ public class CartPage extends AbstractComponents
      WebElement checkoutEle;
 	 
 	 @FindBy(css=".cartSection h3")
-    private List<WebElement>cartproducts;
+     private List<WebElement>cartproducts;
+	 
+	 @FindBy(css=".product-name-class") // Replace with actual class
+	 private List<WebElement> cartproductss;
+
 	 
 	public  CartPage(WebDriver driver) 
 	{
@@ -33,12 +37,14 @@ public class CartPage extends AbstractComponents
 	{
 		Boolean match=cartproducts.stream().anyMatch(product->product.getText().equalsIgnoreCase(productName));
 		   return match;
-		
+
 	}
-   public   CheckoutPage goToCheckout()
+	
+	
+   public   CheckoutPage goToCheckout() //returns a new instance of the CheckoutPage class.
    {
 	   checkoutEle.click();
-	   return new CheckoutPage(driver);
+	  return new CheckoutPage(driver);
 	   
    }
 
